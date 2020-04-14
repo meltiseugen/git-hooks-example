@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# This hook is called by git-push[1] and can be used to prevent a
+# push from taking place. The hook is called with two parameters
+# which provide the name and location of the destination remote,
+# if a named remote is not being used both values will be the same.
+
+# Here you can add what you woulf like to happen before pushing.
+# For example:
+#   * Make a merge or a rebase from the develop branch
+#   * Run the tests before making a push
+
+git fetch
+git merge origin/develop
+pytest
